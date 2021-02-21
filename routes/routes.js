@@ -26,9 +26,18 @@ module.exports = function (app) {
 
     app.put("/api/workouts/:id", (req, res) => {
         console.log(req.body);
-        // Workout.create(req.body)
-        //     .then(db => { res.json(db) })
-        //     .catch(err => { res.status(400).json(err); });
+        Workout.findOneAndUpdate({ _id: req.params.id },
+            { $push: { exercises: req.body } },
+            { new: true }, (err, result) => {
+                console.log(result);
+                if (err) { res.send(err) }
+                else { res.send(result) }
+            });
+
+        // Workout.findById(req.params.id,
+        //     { $push: { exercises: req.body } });
+        // //     .then(db => { res.json(db) })
+        // //     .catch(err => { res.status(400).json(err); });
     });
 
 
