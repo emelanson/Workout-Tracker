@@ -1,4 +1,5 @@
 const path = require("path");
+const { Workout } = require("../models");
 require('mongoose');
 
 module.exports = function (app) {
@@ -16,5 +17,12 @@ module.exports = function (app) {
     });
 
     //API Routes
+    app.put("/api/workouts/:id", (req, res) => {
+        console.log(req.body);
+        Workout.create(req.body).then(workout => { res.json(workout) });
+
+    });
+
+
 
 }

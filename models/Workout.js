@@ -13,6 +13,7 @@ const WorkoutSchema = new Schema({
     Distance: Number
 });
 
+//compile to model
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
