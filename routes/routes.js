@@ -1,6 +1,19 @@
-const router = require('express').Router();
+const path = require("path");
 require('mongoose');
 
-//code here
+module.exports = function (app) {
+    //HTML routes
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
 
-module.exports = router;
+    app.get("/stats", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/stats.html"));
+    });
+
+    app.get("/exercise", (req, res) => {
+        res.sendFile(path.join(__dirname, "../public/exercise.html"));
+    });
+
+    //API Routes
+}

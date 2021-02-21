@@ -1,7 +1,6 @@
 const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const routes = require("./routes/routes");
 
 const PORT = process.env.PORT || 3000;
 
@@ -18,12 +17,8 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populate", { useNewUrlParser: true });
 
-app.use(routes)
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname + "./public/index.html"));
-});
-
+//routes
+require("./routes/routes")(app)
 
 
 // db.Library.create({ name: "Campus Library" })
