@@ -39,6 +39,16 @@ module.exports = function (app) {
             });
     });
 
+    app.get("/api/workouts/range", (req, res) => {
+        Workout.find({}).then(db => {
+            console.log(db);
+            res.json(db);
+        })
+            .catch(err => {
+                res.status(400).json(err);
+            });
+    })
+
 
 
 }
