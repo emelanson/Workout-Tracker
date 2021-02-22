@@ -17,6 +17,11 @@ module.exports = function (app) {
     });
 
     //API Routes
+    app.get("/api/workouts", (req, res) => {
+        Workout.find({},
+        ).then(db => { res.json(db) })
+    });
+
     app.post("/api/workouts", (req, res) => {
         console.log(req.body);
         Workout.create(req.body)
@@ -29,15 +34,9 @@ module.exports = function (app) {
         Workout.findOneAndUpdate({ _id: req.params.id },
             { $push: { exercises: req.body } },
             { new: true }, (err, result) => {
-                console.log(result);
                 if (err) { res.send(err) }
                 else { res.send(result) }
             });
-
-        // Workout.findById(req.params.id,
-        //     { $push: { exercises: req.body } });
-        // //     .then(db => { res.json(db) })
-        // //     .catch(err => { res.status(400).json(err); });
     });
 
 
