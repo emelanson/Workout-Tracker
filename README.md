@@ -3,7 +3,7 @@
 
 ## Description
 
-<img src="./assets/demo.gif"/>
+<img src="demo1.gif"/>
 
 Workout-Tracker is an app that charts and logs information about a user's workout sessions.  It utilizes MongoDB, Mongoose, and Express.  The deployed version utilizes Mongo Atlas and Heroku.
 
@@ -21,7 +21,7 @@ Workout-Tracker is an app that charts and logs information about a user's workou
 
 The site can either be downloaded and ran locally via ```NPM start```, or you can access the Heroku deployed version at the following URL.
 
-https://calm-citadel-50486.herokuapp.com/ 
+https://vast-caverns-03580.herokuapp.com/
 
 
 
